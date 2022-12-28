@@ -1,4 +1,4 @@
-import {navbar, fetchData, appender} from '../script_files/conponet.js'
+import {navbar, fetchData, appender, onclick_btm, set_status} from '../script_files/conponet.js'
 document.getElementById("navbar").innerHTML = navbar();
 
 let data = async() => {
@@ -7,3 +7,6 @@ let data = async() => {
     appender(x)
 }
 window.addEventListener('load', data)
+window.addEventListener('load', set_status)
+var btm = document.getElementById("sig-log-btm")
+btm.addEventListener('click', onclick_btm)
