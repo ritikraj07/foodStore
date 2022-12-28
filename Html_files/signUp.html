@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="../css_files/sign_log.css">
+    <link rel="stylesheet" href="../css_files/navbar.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    <div id="body">
+        <div>
+            <h1>Sing Up</h1>
+            <div>
+                <input type="email" id="email" placeholder="Email"><br>
+                <input type="text" id="name" placeholder="User Name"><br>
+                <input type="password" id="password" placeholder="Password"><br>
+                <!-- <button id="submit">Sign Up</button><br> -->
+                <input id="submit" type="submit"><br>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script type="module">
+import {navbar} from '../script_files/conponet.js'
+document.getElementById("navbar").innerHTML = navbar();
+
+let btm = document.getElementById("sig-log-btm")
+btm.addEventListener('click', check_status)
+// localStorage.setItem('sin-in-data', 0) 
+var check_user = localStorage.getItem('sin-in-data')
+console.log(check_user)
+if(check_user == null){
+    btm.innerText = "SignIn"
+}else if(check_user == 0){
+    btm.innerText = "LogIn "
+}else{
+    btm.innerText = "LogOut"
+}
+function check_status(){
+    if(check_user == null){
+        window.location.href = "signUp.html"
+    }else{
+        window.location.href = "login.html"
+    }
+}
+
+document.querySelector("#submit").addEventListener('click', signUp)
+
+function signUp(){
+    console.log('hello')
+    var email = document.getElementById("email")
+    var name = document.getElementById("name")
+    var password = document.getElementById("password")
+
+    let obj = {
+        email:email.value,
+        name:name.value,
+        password:password.value
+    }
+    localStorage.setItem('user_data', JSON.stringify(obj)) 
+    window.location.href = "index.html"
+}
+
+</script>

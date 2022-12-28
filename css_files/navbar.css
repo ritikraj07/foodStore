@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+body{
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+    position:relative;
+}
+#navbar{
+    /* border: 1px solid gray; */
+    position:sticky;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#navbar > div:first-child{
+    width: 40%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: larger;
+    align-content: center;
+}
+#navbar > div >div{
+    /* border: 1px solid gold; */
+    align-self: center;
+}
+
+#navbar > div >div a{
+    /* border: 1px solid green; */
+    text-decoration: none;
+}
+#navbar > div:nth-child(2) {
+    width: 20%;
+    /* border: 1px solid rebeccapurple; */
+    display: flex;
+    align-items: center;
+    font-size: larger;
+    
+}
+#navbar > div:nth-child(2) input{
+    width: 100%;
+    padding: 5px 10px;
+    height: inherit;
+    border-radius: 20px;
+}
+#sea-reci {
+    display: none;
+}
+#navbar > div button {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
