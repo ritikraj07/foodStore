@@ -24,7 +24,7 @@ function appender(data){
     var cont = document.getElementById("containter")
     cont.innerHTML = null;
     data.forEach(element => {
-        // console.log(element)
+        console.log(element)
         var div = document.createElement("div")
         var image = document.createElement("img")
         image.src = element.strMealThumb
@@ -32,6 +32,17 @@ function appender(data){
         name.innerText = element.strMeal
         div.append(image, name)
         cont.append(div)
+        div.addEventListener('click', function(){
+            if(Object.keys(element).length==3){
+                var id = element.idMeal
+                fetchData(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).then(function(res){
+                    window.location.href = res.meals[0].strYoutube
+                })
+            }else{
+                window.location.href = element.strYoutube
+            }
+            
+        })
     });
 }
 

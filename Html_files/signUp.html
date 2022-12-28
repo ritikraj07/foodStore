@@ -12,13 +12,13 @@
     <div id="navbar"></div>
     <div id="body">
         <div>
-            <h1>Sing Up</h1>
+            <h1>Sign Up</h1>
             <div>
                 <input type="email" id="email" placeholder="Email"><br>
                 <input type="text" id="name" placeholder="User Name"><br>
                 <input type="password" id="password" placeholder="Password"><br>
-                <!-- <button id="submit">Sign Up</button><br> -->
-                <input id="submit" type="submit"><br>
+                <button id="submit">Sign Up</button><br>
+                
             </div>
         </div>
     </div>
@@ -29,23 +29,35 @@
 import {navbar} from '../script_files/conponet.js'
 document.getElementById("navbar").innerHTML = navbar();
 
+
+
+// localStorage.setItem('user_status', "LogOut") 
 let btm = document.getElementById("sig-log-btm")
-btm.addEventListener('click', check_status)
-// localStorage.setItem('sin-in-data', 0) 
-var check_user = localStorage.getItem('sin-in-data')
-console.log(check_user)
-if(check_user == null){
-    btm.innerText = "SignIn"
-}else if(check_user == 0){
-    btm.innerText = "LogIn "
-}else{
-    btm.innerText = "LogOut"
+var check_user = localStorage.getItem('user_status')
+btm.addEventListener('click', onclick_btm)
+
+console.log("btum  ",btm.innerText)
+function set_status(){
+    if(check_user == null){
+        btm.innerText = "SignUp"
+    }else if(check_user == "SignUp" || check_user == "LogOut"){
+        btm.innerText = "LogIn "
+    }else{
+        btm.innerText = "LogOut"
+    }
 }
-function check_status(){
+
+
+function onclick_btm(){
+    let btm = document.getElementById("sig-log-btm")
+    var check_user = localStorage.getItem('user_status')
     if(check_user == null){
         window.location.href = "signUp.html"
-    }else{
+    }else if(check_user == "SignUp"){
         window.location.href = "login.html"
+    }else{
+        localStorage.setItem('user_status', "LogOut") 
+        window.location.reload()
     }
 }
 
@@ -62,8 +74,9 @@ function signUp(){
         name:name.value,
         password:password.value
     }
+    localStorage.setItem('user_status', "SignUp") 
     localStorage.setItem('user_data', JSON.stringify(obj)) 
-    window.location.href = "index.html"
+    window.location.href = "LogIn.html"
 }
 
 </script>

@@ -25,14 +25,20 @@
 </body>
 </html>
 <script type="module">
-   import {navbar, fetchData, appender} from '../script_files/conponet.js'
-document.getElementById("navbar").innerHTML = navbar();
+   import {navbar, fetchData, appender, onclick_btm, set_status} from '../script_files/conponet.js'
+
+    document.getElementById("navbar").innerHTML = navbar();
+    window.addEventListener('load', set_status)
+
+var btm = document.getElementById("sig-log-btm")
+btm.addEventListener('click', onclick_btm)
 
 let data = async() => {
     let x = await fetchData(`https://www.themealdb.com/api/json/v1/1/random.php`)
     x = x.meals;
     display(x)
 }
+
 window.addEventListener('load', data)
 function display(data){
     let container = document.getElementById("container0fday")

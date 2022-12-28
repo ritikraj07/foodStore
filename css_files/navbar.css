@@ -11,6 +11,7 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 15px 20px;
+    background-color: rgb(236, 166, 80);
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
@@ -31,6 +32,7 @@ body{
 #navbar > div >div a{
     /* border: 1px solid green; */
     text-decoration: none;
+    color: white;
 }
 #navbar > div:nth-child(2) {
     width: 20%;
@@ -44,15 +46,18 @@ body{
     width: 100%;
     padding: 5px 10px;
     height: inherit;
-    border-radius: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
 }
+
 #sea-reci {
     display: none;
 }
 #navbar > div button {
-  background: #5E5DF0;
+  background: #6210fa;
   border-radius: 999px;
-  box-shadow: #5E5DF0 0 10px 20px -10px;
+  /* box-shadow: #5E5DF0 0 10px 20px -10px; */
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
@@ -69,4 +74,5 @@ body{
   width: fit-content;
   word-break: break-word;
   border: 0;
+  border-radius: 5px;
 }

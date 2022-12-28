@@ -14,15 +14,37 @@
         <div>
             <h1>LogIn</h1>
             <div>
-                <input type="email" placeholder="Email"><br>
-                <input type="password" placeholder="Password"><br>
-                <input type="submit"><br>
+                <input id="email" type="email" placeholder="Email"><br>
+                <input id="password" type="password" placeholder="Password"><br>
+                <button id="submit">Log In</button><br>
             </div>
         </div>
     </div>
 </body>
 </html>
 <script type="module">
-import {navbar} from '../script_files/conponet.js'
+import {navbar, fetchData, appender, onclick_btm, set_status} from '../script_files/conponet.js'
 document.getElementById("navbar").innerHTML = navbar();
+
+window.addEventListener('load', set_status)
+var btm = document.getElementById("sig-log-btm")
+btm.addEventListener('click', onclick_btm)
+document.querySelector("#submit").addEventListener('click', LogIn)
+function LogIn(){
+    console.log('hello')
+    var email = document.getElementById("email")
+    var password = document.getElementById("password")
+    
+    let user_data = JSON.parse(localStorage.getItem("user_data"))
+    if(user_data.email == email.value && user_data.password == password.value){
+        localStorage.setItem('user_status', "LogIn")  
+        window.location.href = "index.html"
+    }
+    else{
+        alert("Something Wrong")
+    }
+    
+}
+
+
 </script>
