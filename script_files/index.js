@@ -1,4 +1,5 @@
-import {navbar, fetchData, appender, onclick_btm, set_status} from '../script_files/conponet.js'
+import {navbar, fetchData, appender, onclick_btm, set_status, stickynavbar} from '../script_files/conponet.js'
+window.addEventListener('scroll', stickynavbar)
 document.getElementById("navbar").innerHTML = navbar();
 let data = async(Name) => {
     let x = await fetchData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${Name}`)

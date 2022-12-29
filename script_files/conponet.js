@@ -75,7 +75,15 @@ function onclick_btm(){
         window.location.reload()
     }
 }
+function stickynavbar(){
+    const navbar = document.querySelector("#navbar")
+    let top1 = navbar.offsetTop;
+    if(window.scrollY >= top1){
+        navbar.classList.add('sticky');
+    }else{
+        navbar.classList.remove('sticky');
+    }
+}
 
 
-
-export {navbar, fetchData, appender, onclick_btm, set_status}
+export {navbar, fetchData, appender, onclick_btm, set_status, stickynavbar}
