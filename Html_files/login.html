@@ -16,28 +16,33 @@
             <div>
                 <input id="email" type="email" placeholder="Email"><br>
                 <input id="password" type="password" placeholder="Password"><br>
-                <button id="submit">Log In</button><br>
+                <button id="submit">Log In</button> 
+                <button id="siPage">SignUp</button> 
+                <br>
             </div>
         </div>
     </div>
 </body>
 </html>
 <script type="module">
-import {navbar, fetchData, appender, onclick_btm, set_status, stickynavbar} from '../script_files/conponet.js'
-window.addEventListener('scroll', stickynavbar)
-document.getElementById("navbar").innerHTML = navbar();
+import {fetchData, appender, onclick_btm, set_status, stickynavbar} from '../script_files/conponet.js'
 
-window.addEventListener('load', set_status)
-var btm = document.getElementById("sig-log-btm")
-btm.addEventListener('click', onclick_btm)
+document.getElementById("siPage").addEventListener('click', signpage)
+function signpage(){
+    // console.log('hello')
+    window.location.href = "SignUp.html"
+}
+
 document.querySelector("#submit").addEventListener('click', LogIn)
 function LogIn(){
-    console.log('hello')
     var email = document.getElementById("email")
     var password = document.getElementById("password")
     
-    let user_data = JSON.parse(localStorage.getItem("user_data"))
-    if(user_data.email == email.value && user_data.password == password.value){
+    let user_data = JSON.parse(localStorage.getItem("user_data")) 
+    if(user_data==null){
+        window.location.href = "SignUp.html"
+    }
+    else if(user_data.email == email.value && user_data.password == password.value){
         localStorage.setItem('user_status', "LogIn")  
         window.location.href = "index.html"
     }

@@ -55,8 +55,14 @@ function set_status(){
     var btm = document.getElementById("sig-log-btm")
     if(check_user == null){
         btm.innerText = "SignUp"
-    }else if(check_user == "SignUp" || check_user == "LogOut"){
-        btm.innerText = "LogIn"
+        window.location.href = "signUp.html"
+    }else if(check_user == "LogOut"){
+        window.location.href = "login.html"
+    }
+    
+    else if(check_user == "SignUp" || check_user == "LogOut"){
+        // btm.innerText = "LogIn"
+        // window.location.href = "login.html"
     }else{
         btm.innerText = "LogOut"
     }
@@ -75,13 +81,14 @@ function onclick_btm(){
         window.location.reload()
     }
 }
+
 function stickynavbar(){
     const navbar = document.querySelector("#navbar")
     let top1 = navbar.offsetTop;
     if(window.scrollY >= top1){
         navbar.classList.add('sticky');
     }else{
-        navbar.classList.remove('sticky');
+        // navbar.classList.remove('sticky');
     }
 }
 

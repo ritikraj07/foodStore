@@ -1,15 +1,17 @@
 import {navbar, fetchData, appender, onclick_btm, set_status, stickynavbar} from '../script_files/conponet.js'
+
+
 window.addEventListener('scroll', stickynavbar)
 document.getElementById("navbar").innerHTML = navbar();
 let data = async(Name) => {
     let x = await fetchData(`https://www.themealdb.com/api/json/v1/1/search.php?s=${Name}`)
     x = x.meals;
-    
     return x;
 }
 
 window.addEventListener('load', function(){
     document.getElementById("sea-reci").style.display = 'block'
+
 })
 
 // document.getElementById("sea-reci").addEventListener('click', Sec_food)

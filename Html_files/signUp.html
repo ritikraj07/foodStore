@@ -17,7 +17,9 @@
                 <input type="email" id="email" placeholder="Email"><br>
                 <input type="text" id="name" placeholder="User Name"><br>
                 <input type="password" id="password" placeholder="Password"><br>
-                <button id="submit">Sign Up</button><br>
+                <button id="submit">Sign Up</button>
+                <button id="loPage">Log In</button> 
+                <br>
                 
             </div>
         </div>
@@ -27,43 +29,15 @@
 </html>
 <script type="module">
 import {navbar, fetchData, appender, onclick_btm, set_status, stickynavbar} from '../script_files/conponet.js'
-window.addEventListener('scroll', stickynavbar)
-document.getElementById("navbar").innerHTML = navbar();
 
+document.getElementById("loPage").addEventListener('click', lognpage)
+function lognpage(){
+    console.log('hello')
+    window.location.href = "LogIn.html"
+}
 
-
-// localStorage.setItem('user_status', "LogOut") 
 let btm = document.getElementById("sig-log-btm")
-var check_user = localStorage.getItem('user_status')
-btm.addEventListener('click', onclick_btm)
-
-console.log("btum  ",btm.innerText)
-function set_status(){
-    if(check_user == null){
-        btm.innerText = "SignUp"
-    }else if(check_user == "SignUp" || check_user == "LogOut"){
-        btm.innerText = "LogIn "
-    }else{
-        btm.innerText = "LogOut"
-    }
-}
-
-
-function onclick_btm(){
-    let btm = document.getElementById("sig-log-btm")
-    var check_user = localStorage.getItem('user_status')
-    if(check_user == null){
-        window.location.href = "signUp.html"
-    }else if(check_user == "SignUp"){
-        window.location.href = "login.html"
-    }else{
-        localStorage.setItem('user_status', "LogOut") 
-        window.location.reload()
-    }
-}
-
 document.querySelector("#submit").addEventListener('click', signUp)
-
 function signUp(){
     console.log('hello')
     var email = document.getElementById("email")
