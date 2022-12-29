@@ -11,10 +11,14 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 15px 20px;
-    background-color: rgb(236, 166, 80);
+    background-color: rgb(39, 38, 37);
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
-
+.sticky{
+    position:fixed;
+    top: 0;
+    /* width: 100%; */
+}
 #navbar > div:first-child{
     width: 40%;
     /* border: 1px solid red; */
